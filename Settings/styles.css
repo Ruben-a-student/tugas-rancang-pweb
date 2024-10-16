@@ -11,25 +11,24 @@ html {
   
 .sidebar {
     width: 280px;
-    background-color: #f8f9fa; /* Light background color */
+    background-color: #f8f9fa; 
     padding: 1rem;
     position: sticky;
     top: 0;
 }
 
-/* Sidebar logo link */
+
 .sidebar .logo {
     font-size: 2rem;
     font-weight: 800;
     font-family: poppins;
     color: #000000;
-    margin-bottom: 2rem; /* Space below logo */
+    margin-bottom: 2rem; 
     text-decoration: none;
 }
 
-/* Sidebar navigation items */
 .sidebar .nav-item {
-    margin-bottom: 1rem; /* Adds space between items */
+    margin-bottom: 1rem; 
     font-size: 1rem;
     font-weight: 600;
     font-family: Poppins;
@@ -54,7 +53,7 @@ html {
     font-weight: 600;
 }
 
-/* Dropdown menu items */
+
 .sidebar .dropdown-menu {
     background-color: #f8f9fa;
 }

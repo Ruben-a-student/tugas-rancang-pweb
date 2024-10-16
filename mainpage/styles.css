@@ -11,25 +11,25 @@ html {
   
 .sidebar {
     width: 280px;
-    background-color: #f8f9fa; /* Light background color */
+    background-color: #f8f9fa; 
     padding: 1rem;
     position: sticky;
     top: 0;
 }
 
-/* Sidebar logo link */
+
 .sidebar .logo {
     font-size: 2rem;
     font-weight: 800;
     font-family: poppins;
     color: #000000;
-    margin-bottom: 2rem; /* Space below logo */
+    margin-bottom: 2rem;
     text-decoration: none;
 }
 
-/* Sidebar navigation items */
+
 .sidebar .nav-item {
-    margin-bottom: 1rem; /* Adds space between items */
+    margin-bottom: 1rem; 
     font-size: 1rem;
     font-weight: 600;
     font-family: Poppins;
@@ -54,7 +54,7 @@ html {
     font-weight: 600;
 }
 
-/* Dropdown menu items */
+
 .sidebar .dropdown-menu {
     background-color: #f8f9fa;
 }
@@ -82,28 +82,23 @@ main {
     height: 100vh;
 }
 
-.card-body{
-    padding: 1rem;
+.guidebook .card{
+    width: 30rem;
+    height: 7rem;
+    text-align: left;
+    padding-left: 2rem;
 }
 
-.card .btn{
-    padding: 0.3rem 0.75rem;
+.guidebook .btn-guide{
+    background: #1b26b9;
+    height: 5rem;
 }
 
-.card-title{
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-family: Poppins;
+.guidebook .card .text{
+    margin-top: 0;
 }
 
-.card-text{
-    font-size: 1rem;
-    font-weight: 400;
-    font-family: Poppins;
-}
-
-.card {
+.card-side .card {
     width: 20rem;
     margin-bottom: 1rem;
     border: 2px solid #c0c0c0a8;
@@ -112,6 +107,28 @@ main {
     padding-right: 5px;
     padding-bottom: 8px;
 }
+
+.card-side .card-body{
+    padding: 1rem;
+}
+
+.card-side .card .btn{
+    padding: 0.3rem 0.75rem;
+}
+
+.card-side .card-title{
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: Poppins;
+}
+
+.card-side .card-text{
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: Poppins;
+}
+
 
 .leaderboard-link{
     font-size: 1.2rem;
