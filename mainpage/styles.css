@@ -6,11 +6,6 @@ html, body {
     margin: 0; 
 }
   
-main {
-    height: 100vh;
-    overflow-y: auto;
-}
-
 .sidebar {
     width: 280px;
     background-color: #f8f9fa; 
@@ -18,10 +13,13 @@ main {
     position: sticky;
     top: 0;
     height: 100vh;
-    overflow-y: auto;
     z-index: 1;
 }
 
+main {
+    height: 100vh;
+    overflow-x: auto;
+}
 
 .sidebar .logo {
     font-size: 2rem;
@@ -85,7 +83,7 @@ main {
     top: 0;
 }
 
-.guidebook .card{
+.guidebook-active .card{
     background: #FFB3C6;
     margin-top: 6%;
     border-radius: 15px;
@@ -106,12 +104,42 @@ main {
     font-size: 20px;
 }
 
-.guidebook .btn-guide{
+.guidebook-active .btn-guide{
     border: 2px solid #fb6f92be;
     border-radius: 15px;
     font-family: poppins;
     font-weight: 600;
     background: #FFB3C6;
+    width: 8rem;
+    height: 3.2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.guidebook-active .card-text{
+    font-family: poppins;
+    font-weight: 600;
+    margin-top: 2%;
+}
+
+/* inactiveguidebook */
+
+.guidebook .card{
+    background: #adadad;
+    margin-top: 6%;
+    border-radius: 15px;
+    width: 35rem;
+    height: 6.5rem;
+    text-align: left;
+    padding-left: 2rem;
+    border: transparent;
+}
+
+.guidebook .btn-guide{
+    border: 2px solid #7c7c7cbe;
+    border-radius: 15px;
+    font-family: poppins;
+    font-weight: 600;
+    background: #bbb9ba;
     width: 8rem;
     height: 3.2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -157,6 +185,18 @@ main {
 
 .card-side .card .btn{
     padding: 0.3rem 0.75rem;
+}
+
+.button-friend .btn{
+    padding: 0.3rem 0.75rem;
+    width: 17rem;
+    height: 2.5rem;
+    font-family: poppins;
+    font-weight: 500;
+}
+
+.button-friend .btn:hover{
+    background-color: #7a7a7a46;
 }
 
 .card-side .card-title{

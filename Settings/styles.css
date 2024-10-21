@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-}
-  
-html {
-    height: -webkit-fill-available;
+html, body {
+    height: auto;
+    overflow-y: auto;
+    margin: 0;
 }
   
 .sidebar {
@@ -15,6 +12,8 @@ html {
     padding: 1rem;
     position: sticky;
     top: 0;
+    height: 100vh;
+    z-index: 1;
 }
 
 
