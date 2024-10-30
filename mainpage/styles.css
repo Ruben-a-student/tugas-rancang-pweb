@@ -226,6 +226,36 @@ main {
     padding-bottom: 1rem;
 }
 
+.leaderboard-text{
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.friend-text .button-friend{
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.content-square {
+    width: 100%;        
+    height: 200px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 1px solid #ddd;
+}
+
+.statistics{
+    font-family: poppins;
+    font-size: large;
+    font-weight: 600;
+}
+
 .button-ads{
     text-align: center;
     font-family: poppins;
