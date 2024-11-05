@@ -250,6 +250,14 @@ main {
     border: 1px solid #ddd;
 }
 
+.syntax{
+    font-size: large;
+}
+
+.syntax h5{
+    font-size: larger;
+}
+
 .statistics{
     font-family: poppins;
     font-size: large;
