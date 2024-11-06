@@ -106,12 +106,13 @@ main {
 
 .guidebook-active .btn-guide{
     border: 2px solid #fb6f92be;
+    padding-top: 4%;
     border-radius: 15px;
     font-family: poppins;
     font-weight: 600;
     background: #FFB3C6;
     width: 8rem;
-    height: 3.2rem;
+    height: 3rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
