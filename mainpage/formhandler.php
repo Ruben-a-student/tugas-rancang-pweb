@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // print_r($user); //anohterdbugger
 
         if ($user && password_verify($password, $user['PASSWORD'])) {
-            echo "login successful";
+            echo "success";
         } else {
             echo "invalid username or password.";
         }
