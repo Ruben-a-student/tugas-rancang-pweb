@@ -1,3 +1,7 @@
+<?php
+    include '../sessionhandler.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,33 +21,23 @@
         <!-- sidebar -->
         <main class="d-flex flex-nowrap">     
             <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-light sticky-top" style="width: 280px;">
-                <a href="../mainpage/index.html" class="logo d-flex align-items-center">
+                <a href="../mainpage/Home.php" class="logo d-flex align-items-center">
                     <span>Learn4Code</span>
                 </a>
                 
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="../mainpage/index.html" class="nav-link">
+                        <a href="../mainpage/Home.php" class="nav-link">
                         <i class="bi bi-lightbulb me-2"></i>LEARN
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../mainpage/Practice.html" class="nav-link">
-                        PRACTICE
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../mainpage/Leaderboard.html" class="nav-link">
-                        LEADERBOARD
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../mainpage/Syntax.html" class="nav-link">
+                        <a href="../mainpage/Guide.php" class="nav-link">
                         SYNTAX
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../mainpage/Profile.html" class="nav-link">
+                        <a href="../mainpage/Profile.php" class="nav-link">
                         PROFILE
                         </a>
                     </li>
@@ -53,11 +47,8 @@
                                 MORE
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light text-small shadow">
-                                <li><a class="dropdown-item" href="#">SCHOOLS</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="Settings.html">SETTINGS</a></li>
-                                <li><a class="dropdown-item" href="Help.html">HELP</a></li>
-                                <li><a class="dropdown-item" href="#">LOG OUT</a></li>
+                                <li><a class="dropdown-item" href="Settings.php">SETTINGS</a></li>
+                                <li><a class="dropdown-item" href="Settings.php?logout=true">LOG OUT</a></li>
                             </ul>
                         </div>
                     </li>
@@ -111,7 +102,7 @@
                         </div>
 
                         <div class="button-out">
-                            <button type="button" class="btn">LOG OUT</button>
+                            <a href="Settings.php?logout=true" type="button" class="btn">LOG OUT</a>
                         </div>
                     </div>
                 </div>

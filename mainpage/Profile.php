@@ -1,5 +1,5 @@
 <?php
-    include 'sessionhandler.php';
+    include '../sessionhandler.php';
 ?>
 
 <!DOCTYPE html>
@@ -47,10 +47,8 @@
                                 MORE
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light text-small shadow">
-                                <li><a class="dropdown-item" href="#">SCHOOLS</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="../Settings/Settings.html">SETTINGS</a></li>
-                                <li><a class="dropdown-item" href="#">LOG OUT</a></li>
+                                <li><a class="dropdown-item" href="../Settings/Settings.php">SETTINGS</a></li>
+                                <li><a class="dropdown-item" href="Guide.php?logout=true">LOG OUT</a></li>
                             </ul>
                         </div>
                     </li>
