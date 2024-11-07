@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-
+session_start();
 
 // print_r($_POST); // Debuggerrrrr
 
@@ -20,7 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // print_r($user); //anohterdbugger
 
         if ($user && password_verify($password, $user['PASSWORD'])) {
+            $_SESSION['loggedin'] = true;
             echo "success";
+            exit;
         } else {
             echo "invalid username or password.";
         }

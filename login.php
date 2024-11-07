@@ -40,7 +40,11 @@
                 url: 'formhandler.php',
                 data: $(this).serialize(),
                 success: function(response) {
-                    $('#responseMessage').html(response);
+                    if(response.trim() === "success"){
+                        window.location.href = 'mainpage/Home.php'
+                    } else{
+                        $('#responseMessage').html(response);
+                    }
                 }
             });
         });

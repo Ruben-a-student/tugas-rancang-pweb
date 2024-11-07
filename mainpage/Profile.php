@@ -1,3 +1,7 @@
+<?php
+    include 'sessionhandler.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,23 +21,23 @@
         <!-- sidebar -->
         <main class="d-flex flex-nowrap">     
             <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-light sticky-top" style="width: 280px;">
-                <a href="Home.html" class="logo d-flex align-items-center">
+                <a href="Home.php" class="logo d-flex align-items-center">
                     <span>Learn4Code</span>
                 </a>
                 
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="Home.html" class="nav-link">
+                        <a href="Home.php" class="nav-link">
                         <i class="bi bi-lightbulb me-2"></i>LEARN
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="Guide.html" class="nav-link">
+                        <a href="Guide.php" class="nav-link">
                         GUIDEBOOK
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="Profile.html" class="nav-link active" aria-current="page">
+                        <a href="Profile.php" class="nav-link active" aria-current="page">
                         PROFILE
                         </a>
                     </li>

@@ -78,7 +78,7 @@
     </header>
     <div class="containermid">
         <div class="interactable">
-            <button type="button" class="btn btn-primary btn-lg">Large button</button>
+            <a href="login.php" type="button" class="btn btn-primary btn-lg">Large button</a>
         </div>
     </div>
 </body>

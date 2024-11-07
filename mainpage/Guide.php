@@ -1,3 +1,7 @@
+<?php
+    include 'sessionhandler.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -16,24 +20,24 @@
     <body>
         <!-- sidebar -->
         <main class="d-flex flex-nowrap">     
-            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-light sticky-top">
-                <a href="Home.html" class="logo d-flex align-items-center">
+            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-light sticky-top" style="width: 280px;">
+                <a href="Home.php" class="logo d-flex align-items-center">
                     <span>Learn4Code</span>
                 </a>
                 
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="Home.html" class="nav-link active" aria-current="page">
+                        <a href="Home.php" class="nav-link">
                         <i class="bi bi-lightbulb me-2"></i>LEARN
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="Guide.html" class="nav-link">
+                        <a href="Guide.html" class="nav-link active" aria-current="page">
                         GUIDEBOOK
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="Profile.html" class="nav-link">
+                        <a href="Profile.php" class="nav-link">
                         PROFILE
                         </a>
                     </li>
@@ -42,11 +46,11 @@
                             <a href="#" class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             MORE
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-light text-small shadow" style="z-index: 1050;">
+                            <ul class="dropdown-menu dropdown-menu-light text-small shadow">
                                 <li><a class="dropdown-item" href="#">SCHOOLS</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="../Settings/Settings.html">SETTINGS</a></li>
-                                <li><a class="dropdown-item" href="#">LOG OUT</a></li>
+                                <li><a class="dropdown-item" href="sessionhandler.php?logout">LOG OUT</a></li>
                             </ul>
                         </div>
                     </li>
@@ -57,76 +61,38 @@
         
             <div class="container text-center">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-5 pt-4 justify-content-center">
-                        <div class="guidebook-active">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p class="card-text title">Unit 1, section 1</p>
-                                            <p class="card-text subtitle">Introduction to C++</p>
-                                        </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <a href="Guide.html" button type="button" class="btn btn-guide mt-2">guidebook</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <br>
-                        <div class="levels-active">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <hr>
-                        <div class="guidebook">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p class="card-text title">Unit 1, section 2</p>
-                                            <p class="card-text subtitle">Basic C++ syntax</p>
-                                        </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <button type="button" class="btn btn-guide mt-2">Jump here</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
-                        </div>
-                        <br>
-                        <div class="levels">
-                            <button type="button" class="btn btn-levels mt-2"></button>
+                    <div class="col-5 pt-4 text-start">
+                        <div class="syntax">
+                            <h5 class="fw-bold">What is C++?</h5>
+                            <p>
+                                C++ is a cross-platform language that can be used to create high-performance applications.
+                                <br>
+                                C++ was developed by nBjarne Stroustrup, as an extension to the C language.
+                                <br>
+                                C++ gives programmers a high level of control over system resources and memory.
+                                <br>
+                                The language was updated 5 major times in 2011, 2014, 2017, 2020, and 2023 to C++11, C++14, C++17, C++20, and C++23.
+                            </p>
+                            <h5 class="fw-bold">Why use C++</h5>
+                            <p>
+                                C++ is one of the world's most popular programming languages.
+                                <br>
+                                C++ can be found in today's operating systems, Graphical User Interfaces, and embedded systems.
+                                <br>
+                                C++ is an object-oriented programming language which gives a clear structure to programs and allows code to be reused, lowering development costs.
+                                <br>
+                                C++ is portable and can be used to develop applications that can be adapted to multiple platforms.
+                                <br>
+                                C++ is fun and easy to learn!
+                                <br>
+                                As C++ is close to C, C# and Java, it makes it easy for programmers to switch to C++ or vice versa.
+                            </p>
+                            <h5 class="fw-bold">Difference between C and C++</h5>
+                            <p>
+                                C++ was developed as an extension of C, and both languages have almost the same syntax.
+                                <br>
+                                The main difference between C and C++ is that C++ supports classes and objects, while C does not.
+                            </p>
                         </div>
                     </div>
 
@@ -162,6 +128,16 @@
                                     <div class="button-ads">
                                         <button type="button" class="btn">Learn More</button>
                                     </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Back to learning</h5>
+                                    <a href="Home.html" class="btn btn-link leaderboard-link" style="text-decoration: none">View</a>
+                                </div>
+                                <div class="leaderboard-text">
+                                    <p class="card-text">You're now on chapter 1</p>
                                 </div>
                             </div>
                         </div>
