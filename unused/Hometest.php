@@ -1,34 +1,32 @@
 <?php
-    include '../sessionhandler.php';
-    include '../connection.php';
+include '../sessionhandler.php';
+include '../connection.php';
 
-    try {
-        // Fetch all levels from the database
-        $stmt = $pdo->prepare("SELECT id, title FROM levels ORDER BY id ASC");
-        $stmt->execute();
-        $levels = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "Error fetching levels: " . $e->getMessage();
-        $levels = [];
-    }
+try {
+    // Fetch all levels from the database
+    $stmt = $pdo->prepare("SELECT id, title FROM levels ORDER BY id ASC");
+    $stmt->execute();
+    $levels = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Error fetching levels: " . $e->getMessage();
+    $levels = [];
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Learn4Code</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="styles.css">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learn4Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 
-        <script>
+    <script>
         function completeLevel(button) {
             button.classList.remove("levels");
             button.classList.add("levels-active");
@@ -43,10 +41,10 @@
             });
         });
     </script>
-    </head>
-    <body>
-        <!-- sidebar -->
-        <main class="d-flex flex-nowrap">     
+</head>
+<body>
+    <!-- sidebar -->
+    <main class="d-flex flex-nowrap">     
             <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-light sticky-top">
                 <a href="Home.php" class="logo d-flex align-items-center">
                     <span>Learn4Code</span>
@@ -81,12 +79,13 @@
                     </li>
                 </ul>
             </div>
-            
-            <div class="b-side-divider b-side-vr"></div>
         
-            <div class="container text-center">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-5 pt-4 justify-content-center">
+        <div class="b-side-divider b-side-vr"></div>
+
+        <div class="container text-center">
+            <div class="row d-flex justify-content-center">
+                <div class="col-5 pt-4 justify-content-center">
+                    <!-- Dynamically render levels buttons -->
                     <?php if (!empty($levels)): $counter = 0;?>
                         <?php foreach ($levels as $level): ?>
                             <?php
@@ -100,7 +99,7 @@
                                                         <p class="card-text subtitle">Introduction to C++</p>
                                                     </div>
                                                     <div class="col-6 d-flex justify-content-end">
-                                                        <a href="Guide.php" button type="button" class="btn btn-guide mt-2">guidebook</a>
+                                                        <a href="Guide.html" button type="button" class="btn btn-guide mt-2">guidebook</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,6 +120,7 @@
                     <?php endif; ?>
                 </div>
 
+                <!-- Right-side card content (static as before) -->
                 <div class="col-5 d-flex flex-column align-items-center pt-4">
                     <div class="mb-3" style="width: 21rem;">
                         <div class="dropdown-center d-flex justify-content-between">
@@ -157,6 +157,7 @@
                     </div>
                 </div>
             </div>
-        </main> 
-    </body>
+        </div>
+    </main> 
+</body>
 </html>
