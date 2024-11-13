@@ -21,7 +21,7 @@
     <div class="login-container">
         <form id="signin" action="formhandler.php" method="post" class="login-form">
             <label for="nama">USERNAME</label>
-            <input type="text" name="nama" placeholder="Username" required><br>
+            <input type="text" name="nama" placeholder="Username"><br>
             
             <label for="email">EMAIL</label>
             <input type="text" name="email" placeholder="Email adress" required><br>
@@ -32,6 +32,7 @@
             <input type="hidden" name="signin" value="1">
 
             <button type="submit">SIGN IN</button>
+            <div id="responseMessage"></div>
         </form>
     </div>
 
@@ -45,6 +46,8 @@
                 success: function(response) {
                     if (response.trim() === "success") {
                         window.location.href = 'login.php'; 
+                    } else{
+                        $('#responseMessage').html(response);
                     }
                 }
             })

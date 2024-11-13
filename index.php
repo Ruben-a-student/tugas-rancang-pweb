@@ -13,73 +13,88 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
         :root {
-            --primary-color: #58cc02;
-            --secondary-color: #fff;
-            --text-color: #3c3c3c;
-            --accent-color: #ffc800;
+            --primary-color: #2550f7; 
+            --text-color: #333;
+            --button-bg: #2550f7;
+            --button-hover-bg: #5779ff;
+            --accent-color: #3051d1;
         }
 
         body, html {
-            font-family: 'poppins', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #becaf7;
             color: var(--text-color);
-            background-color: #f7f7f7;
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            padding: 20px 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: bold;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .btn{
-            height: 3rem;
-            width : 20rem;
-        }
-
-        .containermid{
-            display: flex;
             justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        header .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .btn-primary {
+            background-color: var(--button-bg);
+            border: none;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            font-size: 1.25rem;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        .icons {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin: 1rem 0;
         }
         
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Learn4code</div>
-            </nav>
+    <div class="container">
+        <header>
+            <div class="logo">Learn4Code</div>
+        </header>
+        
+        <h1>Start Your Coding Journey Today</h1>
+        
+        <p>Learn the most in-demand coding languages and become a proficient programmer. Whether you're a beginner or looking to enhance your skills, we're here to guide you!</p>
+        
+        <div class="icons">
+            <i class="bi bi-laptop"></i> <!-- Icon for visual appeal -->
         </div>
-    </header>
-    <div class="containermid">
-        <div class="interactable">
-            <a href="login.php" type="button" class="btn btn-primary btn-lg">Large button</a>
-        </div>
+        
+        <a href="login.php" class="btn btn-primary">Get Started</a>
     </div>
 </body>
 </html>
