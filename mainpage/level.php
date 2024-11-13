@@ -1,6 +1,11 @@
 <?php
     include '../sessionhandler.php';
     include '../connection.php';
+    //debugging purpose
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
 
     $level_id = isset($_GET['id']) ? intval($_GET['id']) : 1;
 
@@ -36,6 +41,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <main class="d-flex flex-nowrap">     
@@ -85,7 +91,14 @@
                             <p><?php echo nl2br(htmlspecialchars($content)); ?></p>
                         </div>
                     </div>
+                    <div id ="notificationArea" class="alert alert-succes mt-4" style ="display: none;"></div>
+                    <form id="finishForm" action="complete_level.php" method="POST">
+                    <input type="hidden" name="finish" value="1">
+                    <input type="hidden" name="level_id" value="<?php echo $level_id; ?>">
+                    <button type="submit" class="btn btn-success mt-4">Finish Level</button>
+                    </form>
                 </div>
+                
 
                 <div class="col-4 d-flex flex-column align-items-center pt-4">
                     <div class="mb-3" style="width: 21rem;">
@@ -125,6 +138,32 @@
             </div>
         </div>
     </main> 
+    <script>
+    $('#finishForm').on('submit', function(event) {
+        event.preventDefault();
+        
+        console.log("Form submitted via AJAX!");
+        console.log($(this).serialize());  // Log serialized data
+
+        $.ajax({
+            type: 'POST',
+            url: 'complete_level.php',
+            data: $(this).serialize(),  // Send serialized form data
+            success: function(response) {
+                console.log("Server Response: " + response);  // Log server response
+                if(response.trim() === "success"){
+                    window.location.href = 'Home.php';
+                } else {
+                    $('#notificationArea').html(response).addClass('alert-danger').show();
+                }
+            },
+            error: function(xhr, status, error) {
+                $('#notificationArea').html("An error occurred. Please try again.").addClass('alert-danger').show();
+            }
+        });
+    });
+
+</script>
 </body>
 </html>
 </html>

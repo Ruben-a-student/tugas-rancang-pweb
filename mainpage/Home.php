@@ -7,10 +7,19 @@
         $stmt = $pdo->prepare("SELECT id, title FROM levels ORDER BY id ASC");
         $stmt->execute();
         $levels = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // fetch progress
+        $user_id = $_SESSION['user_id'];
+        $stmt = $pdo->prepare("SELECT level_id FROM user_progress WHERE user_id= :user_id");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        $completedLevels = $stmt->fetchAll(PDO::FETCH_COLUMN);
     } catch (PDOException $e) {
         echo "Error fetching levels: " . $e->getMessage();
         $levels = [];
+        $completedLevels = [];
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -27,22 +36,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
-
-        <script>
-        function completeLevel(button) {
-            button.classList.remove("levels");
-            button.classList.add("levels-active");
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const levelButtons = document.querySelectorAll(".levels");
-            levelButtons.forEach(button => {
-                button.addEventListener("click", function() {
-                    completeLevel(button);
-                });
-            });
-        });
-    </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <!-- sidebar -->
@@ -90,6 +84,9 @@
                     <?php if (!empty($levels)): $counter = 0;?>
                         <?php foreach ($levels as $level): ?>
                             <?php
+                                $isCompleted = in_array($level['id'], $completedLevels);
+                            ?>
+                            <?php
                                 if ($counter % 5 === 0 or $counter === 0): ?>
                                     <div class="guidebook-active">
                                         <div class="card">
@@ -108,10 +105,10 @@
                                     </div>
                                     <hr>
                                     <br>
-                                    <?php endif;
+                                <?php endif;
                                 $counter++;
                                 ?>
-                                <div class="levels">
+                                <div class="<?php echo $isCompleted ? 'levels-active' : 'levels'; ?>">
                                     <button type="button" class="btn btn-levels mt-2" onclick="location.href='level.php?id=<?php echo $level['id']; ?>'"></button>
                                 </div>
                                 <br>

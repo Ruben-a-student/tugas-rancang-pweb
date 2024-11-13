@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($user && password_verify($password, $user['PASSWORD'])) {
             $_SESSION['loggedin'] = true;
+            $_SESSION['user_id'] = $user['id'];
             echo "success";
             exit;
         } else {
