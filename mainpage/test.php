@@ -85,20 +85,26 @@
         <div class="container text-center">
             <div class="row d-flex justify-content-center">
                 <div class="col-8 pt-4 justify-content-center">
-                    <h1 class="title-content"><?php echo htmlspecialchars($title); ?></h1>
+                    <h1 class="title-content">TITLE PLACEHOLDER</h1>
                     <div class="card-main">
                         <div class="card">
                             <div class="card-body">
-                                <p><?php echo nl2br($content); ?></p>
+                              
+                                <div class="example">
+                                    <h2 class="example-title">Example</h2>
+                                    <pre class="snippet"><code>#include &lt;iostream&gt;
+using namespace std;
+
+                        int main() {
+                            cout << "Hello World!";
+                            return 0;
+                        }
+                                    </code></pre>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <div id ="notificationArea" class="alert alert-succes mt-4" style ="display: none;"></div>
-                    <form id="finishForm" action="complete_level.php" method="POST">
-                    <input type="hidden" name="finish" value="1">
-                    <input type="hidden" name="level_id" value="<?php echo $level_id; ?>">
-                    <button type="submit" class="btn btn-success mt-4">Finish Level</button>
-                    </form>
                 </div>
                 
 

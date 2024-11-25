@@ -132,7 +132,7 @@
                             <div class="card">
                                 <div class="card-body d-flex justify-content-between align-items-center">
                                     <h5 class="card-title">Back to learning</h5>
-                                    <a href="Home.html" class="btn btn-link leaderboard-link" style="text-decoration: none">View</a>
+                                    <a href="Home.php" class="btn btn-link leaderboard-link" style="text-decoration: none">View</a>
                                 </div>
                                 <div class="leaderboard-text">
                                     <p class="card-text">You're now on chapter 1</p>

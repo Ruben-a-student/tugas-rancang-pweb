@@ -81,7 +81,7 @@
             <div class="container text-center">
                 <div class="row d-flex justify-content-center">
                     <div class="col-5 pt-4 justify-content-center">
-                    <?php if (!empty($levels)): $counter = 0;?>
+                    <?php if (!empty($levels)): $counter = 0; $sectionnumber=1;?>
                         <?php foreach ($levels as $level): ?>
                             <?php
                                 $isCompleted = in_array($level['id'], $completedLevels);
@@ -93,8 +93,8 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-6">
-                                                        <p class="card-text title">Unit 1, section 1</p>
-                                                        <p class="card-text subtitle">Introduction to C++</p>
+                                                        <p class="card-text title">Section <?php echo $sectionnumber; ?></p>
+                                                        <p class="card-text subtitle">Section <?php echo $sectionnumber; ?></p>
                                                     </div>
                                                     <div class="col-6 d-flex justify-content-end">
                                                         <a href="Guide.php" button type="button" class="btn btn-guide mt-2">guidebook</a>
@@ -105,6 +105,7 @@
                                     </div>
                                     <hr>
                                     <br>
+                                    <?php $sectionnumber++;?>
                                 <?php endif;
                                 $counter++;
                                 ?>

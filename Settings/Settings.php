@@ -81,7 +81,7 @@
                                     <button type="button" class="btn">Courses</button>
                                 </div>
                                 <div class="button-service">
-                                    <button type="button" class="btn">Duolingo for Schools</button>
+                                    <button type="button" class="btn">Learn4Code for Schools</button>
                                 </div>
                                 <div class="button-service">
                                     <button type="button" class="btn">Social accounts</button>

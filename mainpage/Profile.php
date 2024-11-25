@@ -1,5 +1,19 @@
 <?php
     include '../sessionhandler.php';
+    include '../connection.php';
+
+    $user_id = $_SESSION['user_id'];
+    $stmt = $pdo->prepare("SELECT NAMA FROM tb_user WHERE id = :user_id");
+    $stmt->bindParam(':user_id', $user_id);
+    $stmt->execute();
+    
+    $profile = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if($profile){
+        $nama = $profile['NAMA'];
+    }else{
+        echo "No user found with this ID";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -64,8 +78,8 @@
                             <p class="mb-0">Profile picture</p>
                         </div>
                         <div class="text-center mt-3">
-                            <h5 class="fw-bold mb-0">Nickname</h5>
-                            <p class="text-muted mb-0">Nickname</p>
+                            <h5 class="fw-bold mb-0"><?PHP echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8')?></h5>
+                            <p class="text-muted mb-0"><?PHP echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8')?></p>
                             <p class="text-muted">Joined date</p>
 
                             <p>
