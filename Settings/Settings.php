@@ -16,6 +16,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <!-- sidebar -->
@@ -33,18 +34,18 @@
                     </li>
                     <li class="nav-item">
                         <a href="../mainpage/Guide.php" class="nav-link">
-                        SYNTAX
+                        <i class="bi bi-book me-2"></i>GUIDEBOOK
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="../mainpage/Profile.php" class="nav-link">
-                        PROFILE
+                        <i class="bi bi-person"></i> PROFILE
                         </a>
                     </li>
                     <li class="nav-item">
                         <div class="dropend">
                             <a href="#" class="nav-link active text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
-                                MORE
+                            <i class="bi bi-gear-fill"></i> MORE
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light text-small shadow">
                                 <li><a class="dropdown-item" href="Settings.php">SETTINGS</a></li>
@@ -60,7 +61,15 @@
             <div class="container text-center">
                 <div class="row d-flex justify-content-center">
                     <div class="col-5 pt-4">
-                        <p>content here</p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title" style="padding-left: 0.7rem; text-align: left;">Danger Zone</h5>
+                                <p class="card-text text-danger">Deleting your account is permanent and cannot be undone.</p>
+                                <form action="deleteacc.php" method="POST" onsubmit="return confirmDelete();">
+                                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-5 d-flex flex-column align-items-center pt-4">
@@ -108,5 +117,10 @@
                 </div>
             </div>
         </main> 
+        <script>
+            function confirmDelete() {
+                return confirm("Are you sure you want to delete your account? This action cannot be undone.");
+            }
+        </script>
     </body>
 </html>

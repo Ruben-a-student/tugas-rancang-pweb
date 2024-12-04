@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
 
 
-    } elseif (isset($_POST['signin'])) { //buat form sign in ea
+    } elseif (isset($_POST['signin'])) { //buat form sign up ea
 
         $nama = $_POST['nama']??'';
         $email = $_POST['email'] ?? '';

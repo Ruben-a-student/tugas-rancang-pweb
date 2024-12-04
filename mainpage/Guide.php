@@ -33,18 +33,18 @@
                     </li>
                     <li class="nav-item">
                         <a href="Guide.html" class="nav-link active" aria-current="page">
-                        GUIDEBOOK
+                        <i class="bi bi-book-fill me-2"></i>GUIDEBOOK
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="Profile.php" class="nav-link">
-                        PROFILE
+                        <i class="bi bi-person"></i> PROFILE
                         </a>
                     </li>
                     <li class="nav-item">
                         <div class="dropend">
                             <a href="#" class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            MORE
+                            <i class="bi bi-gear"></i> MORE
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light text-small shadow">
                                 <li><a class="dropdown-item" href="../Settings/Settings.php">SETTINGS</a></li>

@@ -16,15 +16,20 @@ html, body {
     z-index: 1;
 }
 
+main {
+    height: 100vh;
+    overflow-x: auto;
+}
 
 .sidebar .logo {
     font-size: 2rem;
     font-weight: 800;
     font-family: poppins;
     color: #000000;
-    margin-bottom: 2rem; 
+    margin-bottom: 2rem;
     text-decoration: none;
 }
+
 
 .sidebar .nav-item {
     margin-bottom: 1rem; 
@@ -45,9 +50,9 @@ html, body {
 }
 
 .sidebar .nav-link.active {
-    background-color: #1c9fd323;
-    border: 2px solid #1c9fd3d8;
-    color: #1c9fd3d8;
+    background-color: #ADE8F4;
+    border: 2px solid #00B4D8;
+    color: #00B4D8;
     font-size: 1rem;
     font-weight: 600;
 }
@@ -55,6 +60,8 @@ html, body {
 
 .sidebar .dropdown-menu {
     background-color: #f8f9fa;
+    z-index: 1050;
+    position: absolute;
 }
 
 main {

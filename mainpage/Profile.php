@@ -3,7 +3,8 @@
     include '../connection.php';
 
     $user_id = $_SESSION['user_id'];
-    $stmt = $pdo->prepare("SELECT NAMA FROM tb_user WHERE id = :user_id");
+    
+    $stmt = $pdo->prepare("SELECT NAMA, created_at FROM tb_user WHERE id = :user_id");
     $stmt->bindParam(':user_id', $user_id);
     $stmt->execute();
     
@@ -11,8 +12,31 @@
     
     if($profile){
         $nama = $profile['NAMA'];
+        $created_at = $profile['created_at'];
     }else{
         echo "No user found with this ID";
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_username'])) {
+        $new_username = trim($_POST['new_username']);
+    
+        if (!empty($new_username)) {
+          
+            $stmt = $pdo->prepare("UPDATE tb_user SET NAMA = :new_username WHERE id = :user_id");
+            $stmt->bindParam(':new_username', $new_username);
+            $stmt->bindParam(':user_id', $user_id);
+    
+            if ($stmt->execute()) {
+                $message = "Username updated successfully!";
+                header("location: ". $_SERVER['PHP_SELF']);
+                exit;
+            } else {
+                $errorInfo = $stmt->errorInfo();
+                $message = "Failed to update username: " . $errorInfo[2];
+            }
+        } else {
+            $message = "Username cannot be empty.";
+        }
     }
 ?>
 
@@ -29,6 +53,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -47,22 +72,22 @@
                     </li>
                     <li class="nav-item">
                         <a href="Guide.php" class="nav-link">
-                        GUIDEBOOK
+                        <i class="bi bi-book me-2"></i> GUIDEBOOK
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="Profile.php" class="nav-link active" aria-current="page">
-                        PROFILE
+                        <i class="bi bi-person-fill"></i> PROFILE
                         </a>
                     </li>
                     <li class="nav-item">
                         <div class="dropend">
                             <a href="#" class="nav-link text-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                MORE
+                            <i class="bi bi-gear"></i> MORE
                             </a>
                             <ul class="dropdown-menu dropdown-menu-light text-small shadow">
                                 <li><a class="dropdown-item" href="../Settings/Settings.php">SETTINGS</a></li>
-                                <li><a class="dropdown-item" href="Guide.php?logout=true">LOG OUT</a></li>
+                                <li><a class="dropdown-item" href="Profile.php?logout=true">LOG OUT</a></li>
                             </ul>
                         </div>
                     </li>
@@ -78,14 +103,19 @@
                             <p class="mb-0">Profile picture</p>
                         </div>
                         <div class="text-center mt-3">
-                            <h5 class="fw-bold mb-0"><?PHP echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8')?></h5>
-                            <p class="text-muted mb-0"><?PHP echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8')?></p>
-                            <p class="text-muted">Joined date</p>
-
-                            <p>
-                                <a href="#" class="text-primary fw-bold me-3">Following</a>
-                                <a href="#" class="text-primary fw-bold">Follower</a>
-                            </p>
+                            <h5 class="fw-bold mb-0">
+                                <?php echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8'); ?>
+                                <button class="btn btn-sm btn-outline-primary ms-2" id="edit-btn">Edit</button>
+                            </h5>
+                            <form id="edit-form" method="POST" style="display: none;">
+                                <div class="input-group mt-2">
+                                    <input type="text" name="new_username" class="form-control" placeholder="Enter new username" value="<?php echo htmlspecialchars($nama, ENT_QUOTES, 'UTF-8'); ?>">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                                </div>
+                            </form>
+                            <p class="text-muted mb-0">Joined date: <?php echo date('F j, Y', strtotime($created_at)); ?></p>
+                            <?php if (isset($message)) { echo "<p class='text-success'>$message</p>"; } ?>
                         </div>
                         <hr>
                         <div class="statistics">
@@ -181,5 +211,16 @@
                 </div>
             </div>
         </main> 
+        <script>
+            document.getElementById('edit-btn').addEventListener('click', function() {
+                document.getElementById('edit-form').style.display = 'block';
+                this.style.display = 'none';
+            });
+
+            document.getElementById('cancel-btn').addEventListener('click', function() {
+                document.getElementById('edit-form').style.display = 'none';
+                document.getElementById('edit-btn').style.display = 'inline-block';
+            });
+        </script>
     </body>
 </html>

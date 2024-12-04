@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <!-- got no clue what half of these are for, but imma leave it be, i forgot probably font api(s) and some bootstrap that i don't even use lmao-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,14 +24,14 @@
             <input type="text" name="nama" placeholder="Username"><br>
             
             <label for="email">EMAIL</label>
-            <input type="text" name="email" placeholder="Email adress" required><br>
+            <input type="email" name="email" placeholder="Email adress" required><br>
             
             <label for="password">PASSWORD</label>
             <input type="password" name="password" placeholder="Password" required><br>
 
             <input type="hidden" name="signin" value="1">
 
-            <button type="submit">SIGN IN</button>
+            <button type="submit">SIGN UP</button>
             <div id="responseMessage"></div>
         </form>
     </div>

@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-    <a href="signin.php" class="sign-in-button" style="text-decoration: none">Sign In</a>
+    <a href="signin.php" class="sign-in-button" style="text-decoration: none">Sign Up</a>
 
     <div class="login-container">
         <form id="login" action="formhandler.php" method="POST" class="login-form">
             <label for="email">EMAIL</label>
-            <input type="text" name="email" placeholder="E-mail address" required><br>
+            <input type="email" name="email" placeholder="E-mail address" required><br>
             
             <label for="password">PASSWORD</label>
             <input type="password" name="password" placeholder="Password" required><br>
